@@ -1,13 +1,10 @@
 import {getLastTimeEntries} from "@src/services/getLastTimeEntries.js";
 import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds.js";
 import {getJiraTasks} from "@src/api/getJiraTasks.js";
+import {getJiraIssueUrl} from "@src/shared/utils/getJiraIssueUrl.js";
 
 const lastTimeEntries = await getLastTimeEntries()
 const timeEntriesValues = Object.values(lastTimeEntries)
-
-function getJiraIssueUrl(JIRA_DOMAIN: string, issueKey: string): string {
-  return `https://${JIRA_DOMAIN}/browse/${issueKey}`;
-}
 
 if (timeEntriesValues.length > 0) {
   const jiraTasks = await getJiraTasks(Object.keys(lastTimeEntries))
