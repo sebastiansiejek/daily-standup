@@ -5,12 +5,12 @@ export type JiraIssue = {
   key: string,
   fields: {
     summary: string,
-    status: [{
+    status: {
       self: string,
       description: string,
       iconUrl: string,
       name: string,
       id: string,
-    }]
+    }
   }
 }

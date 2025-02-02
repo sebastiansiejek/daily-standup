@@ -3,13 +3,16 @@ import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSec
 import {getJiraTasks} from "@src/api/getJiraTasks.js";
 
 const lastTimeEntries = await getLastTimeEntries()
-const jiraTasks = await getJiraTasks(Object.keys(lastTimeEntries))
+const timeEntriesValues = Object.values(lastTimeEntries)
 
-console.log(jiraTasks.data.issues)
+if (timeEntriesValues.length > 0) {
+  const jiraTasks = await getJiraTasks(Object.keys(lastTimeEntries))
 
-Object.values(lastTimeEntries).forEach(({task: {name}, duration, tags = []}) => {
-  const tagNames = tags.map(tag => tag.name).join(', ')
-  const formattedDuration = formatDurationFromSeconds(duration)
+  Object.values(lastTimeEntries).forEach(({task: {name}, duration, tags = []}) => {
+    const tagNames = tags.map(tag => tag.name).join(', ')
+    const formattedDuration = formatDurationFromSeconds(duration)
+    const status = jiraTasks.data.issues.find(issue => name.includes(issue.key))?.fields.status?.name || 'Unknown'
 
-  console.log(name, tagNames, formattedDuration)
-})
+    console.log(name, tagNames, formattedDuration, status)
+  })
+}
