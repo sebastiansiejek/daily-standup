@@ -22,6 +22,8 @@ if (timeEntriesValues.length > 0) {
     const status = jiraIssue?.fields.status?.name || ''
     const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(process.env.JIRA_DOMAIN, jiraIssue.key) : ''
 
-    console.log(position, name, tagNames, formattedDuration, status, linkToIssue)
+    const result = `${position} ${name} | ${tagNames} | ${formattedDuration} | ${status} | ${linkToIssue}`
+
+    console.log(result)
   })
 }
