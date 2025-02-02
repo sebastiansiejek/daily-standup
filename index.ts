@@ -12,13 +12,16 @@ function getJiraIssueUrl(JIRA_DOMAIN: string, issueKey: string): string {
 if (timeEntriesValues.length > 0) {
   const jiraTasks = await getJiraTasks(Object.keys(lastTimeEntries))
 
-  Object.values(lastTimeEntries).forEach(({task: {name}, duration, tags = []}) => {
+  Object.values(lastTimeEntries)
+    .sort((a, b) => b.duration - a.duration)
+    .forEach(({task: {name}, duration, tags = []}, index) => {
+    const position = `${index + 1}.`
     const tagNames = tags.map(tag => tag.name).join(', ')
     const formattedDuration = formatDurationFromSeconds(duration)
     const jiraIssue = jiraTasks.data.issues.find(issue => name.includes(issue.key))
     const status = jiraIssue?.fields.status?.name || ''
     const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(process.env.JIRA_DOMAIN, jiraIssue.key) : ''
 
-    console.log(name, tagNames, formattedDuration, status, linkToIssue)
+    console.log(position, name, tagNames, formattedDuration, status, linkToIssue)
   })
 }
