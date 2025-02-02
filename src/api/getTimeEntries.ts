@@ -1,6 +1,6 @@
 import * as process from "node:process";
 import dayjs from 'dayjs'
-import type {TimeEntries, TimeEntriesResponse} from "@src/shared/types/timeEntries.types.js";
+import type {TimeEntries} from "@src/shared/types/timeEntries.types.js";
 
 
 export const getTimeEntries = async ({startDate, endDate}: {
@@ -23,7 +23,7 @@ export const getTimeEntries = async ({startDate, endDate}: {
   })
 
   if (!response.ok) {
-    throw new Error()
+    throw new Error('Response is not ok')
   }
 
   return {
