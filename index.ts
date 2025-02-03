@@ -11,7 +11,7 @@ if (timeEntriesValues.length > 0) {
 
   Object.values(lastTimeEntries)
     .sort((a, b) => b.duration - a.duration)
-    .forEach(({task: {name}, duration, tags = []}, index) => {
+    .forEach(({task: {name}, duration, tags = [], description}, index) => {
     const position = `${index + 1}.`
     const tagNames = tags.map(tag => tag.name).join(', ')
     const formattedDuration = formatDurationFromSeconds(duration)
@@ -19,7 +19,7 @@ if (timeEntriesValues.length > 0) {
     const status = jiraIssue?.fields.status?.name || ''
     const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(process.env.JIRA_DOMAIN, jiraIssue.key) : ''
 
-    const result = `${position} ${name} | ${tagNames} | ${formattedDuration} | ${status} | ${linkToIssue}`
+    const result = `${position} ${name} | ${description || ''} | ${tagNames} | ${formattedDuration} | ${status} | ${linkToIssue}`
 
     console.log(result)
   })
