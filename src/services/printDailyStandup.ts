@@ -2,6 +2,7 @@ import {getLastTimeEntries} from "@src/services/getLastTimeEntries.js";
 import {getJiraTasks} from "@src/api/getJiraTasks.js";
 import {getJiraIssueUrl} from "@src/shared/utils/getJiraIssueUrl.js";
 import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds.js";
+import groupBy from 'lodash.groupby'
 
 export const printDailyStandup = async () => {
   const lastTimeEntries = await getLastTimeEntries()
@@ -21,19 +22,20 @@ export const printDailyStandup = async () => {
 
         return {
           name,
+          description: description || '',
           status,
           linkToIssue,
-          tagNames,
+          tags: tagNames,
           duration: formattedDuration,
         }
       })
       .filter(entry => entry.linkToIssue)
       .sort((a, b) => b.duration.localeCompare(a.duration))
 
-    const groups = Object.groupBy(data, (item) => item.status)
+    const groups = groupBy(data, item => item.status)
 
     Object.entries(groups).forEach(([status, items]) => {
-      console.log(status)
+      console.log(`-------- ${status} --------`)
       console.table(items)
     })
   }
