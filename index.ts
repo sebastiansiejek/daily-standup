@@ -10,16 +10,24 @@ if (timeEntriesValues.length > 0) {
   const jiraTasks = await getJiraTasks(Object.keys(lastTimeEntries))
 
   Object.values(lastTimeEntries)
-    .sort((a, b) => b.duration - a.duration)
-    .forEach(({task: {name}, duration, tags = [], description}, index) => {
+    .map(entry => {
+      const jiraIssue = jiraTasks.data.issues.find(issue => entry.task.name.includes(issue.key))
+      const status = jiraIssue?.fields.status?.name || ''
+      const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(process.env.JIRA_DOMAIN, jiraIssue.key) : ''
+
+      return {
+        ...entry,
+        status,
+        linkToIssue
+      }
+    })
+    .sort((a, b) =>  b.status.localeCompare(a.status))
+    .forEach(({task: {name}, duration, tags = [], description, status, linkToIssue}, index) => {
     const position = `${index + 1}.`
     const tagNames = tags.map(tag => tag.name).join(', ')
     const formattedDuration = formatDurationFromSeconds(duration)
-    const jiraIssue = jiraTasks.data.issues.find(issue => name.includes(issue.key))
-    const status = jiraIssue?.fields.status?.name || ''
-    const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(process.env.JIRA_DOMAIN, jiraIssue.key) : ''
 
-    const result = `${position} ${name} | ${description || ''} | ${tagNames} | ${formattedDuration} | ${status} | ${linkToIssue}`
+    const result = `${position} ${status} | ${name} | ${description || ''} | ${tagNames} | ${formattedDuration} | ${linkToIssue}`
 
     console.log(result)
   })
