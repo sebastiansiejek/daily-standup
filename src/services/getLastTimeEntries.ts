@@ -1,6 +1,6 @@
 import {getTimeEntries} from "@src/api/getTimeEntries.js";
 import dayjs from "dayjs";
-import type {TimeEntries, TimeEntriesResponse, TimeEntry} from "@src/shared/types/timeEntries.types.js";
+import type {TimeEntries, TimeEntry} from "@src/shared/types/timeEntries.types.js";
 
 const today = dayjs();
 
