@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "node" : "22.13.1",
   "volta": {
     "node": "22.13.1"
   },
