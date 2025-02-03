@@ -9,6 +9,7 @@ export const printDailyStandup = async () => {
 
   if (timeEntriesValues.length > 0) {
     const jiraTasks = await getJiraTasks(Object.keys(lastTimeEntries))
+
     const data = Object.values(lastTimeEntries)
       .map(entry => {
         const jiraIssue = jiraTasks.data.issues.find(issue => entry.task.name.includes(issue.key))
@@ -27,8 +28,13 @@ export const printDailyStandup = async () => {
         }
       })
       .filter(entry => entry.linkToIssue)
-      .sort((a, b) => b.status.localeCompare(a.status))
+      .sort((a, b) => b.duration.localeCompare(a.duration))
 
-    console.table(data)
+    const groups = Object.groupBy(data, (item) => item.status)
+
+    Object.entries(groups).forEach(([status, items]) => {
+      console.log(status)
+      console.table(items)
+    })
   }
 }
