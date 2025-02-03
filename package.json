@@ -4,15 +4,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx --env-file=.env index.ts",
-    "lint": "npx eslint",
-    "format": "npx eslint --fix"
+    "dev": "tsx watch --env-file=.env index.ts",
+    "start": "tsx --env-file=.env index.ts ",
+    "build": "tsup index.ts --format esm --minify",
+    "lint": "eslint ./src",
+    "format": "eslint ./src --fix",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sebastian Siejek",
   "license": "ISC",
   "description": "",
-  "node" : "22.13.1",
+  "node": ">=22",
   "volta": {
     "node": "22.13.1"
   },
@@ -21,6 +24,7 @@
     "@types/node": "^22.13.0",
     "eslint": "^9.19.0",
     "globals": "^15.14.0",
+    "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript-eslint": "^8.23.0"
   },
@@ -31,5 +35,8 @@
     "dotenv": "^16.4.7",
     "inquirer": "^12.4.1",
     "lodash.groupby": "^4.6.0"
+  },
+  "bin": {
+    "daily-standup": "./dist/index.js"
   }
 }

@@ -29,7 +29,6 @@ export const printDailyStandup = async () => {
           duration: formattedDuration,
         }
       })
-      .filter(entry => entry.linkToIssue)
       .sort((a, b) => b.duration.localeCompare(a.duration))
 
     const groups = groupBy(data, item => item.status)

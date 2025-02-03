@@ -29,14 +29,14 @@ const main = async () => {
         {
           type: 'input',
           name: 'JIRA_DOMAIN',
-          message: 'Please enter jira domain',
+          message: 'Please enter jira domain: ',
           required: true,
           default: process.env.JIRA_DOMAIN
         },
         {
           type: 'input',
           name: 'JIRA_EMAIL',
-          message: 'Please enter jira email',
+          message: 'Please enter jira email: ',
           required: true,
           default: process.env.JIRA_EMAIL
         }
