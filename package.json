@@ -8,7 +8,7 @@
     "dev": "tsx watch --env-file=.env index.ts",
     "start": "tsx --env-file=.env index.ts ",
     "build": "tsup index.ts --format esm --minify",
-    "lint": "eslint ./src",
+    "lint": "tsc --noEmit && eslint ./src",
     "format": "eslint ./src --fix",
     "prepublishOnly": "npm run build"
   },
