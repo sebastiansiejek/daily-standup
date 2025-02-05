@@ -2,7 +2,7 @@ import {getLastTimeEntries} from "@src/services/getLastTimeEntries.js";
 import {getJiraTasks} from "@src/api/getJiraTasks.js";
 import {getJiraIssueUrl} from "@src/shared/utils/getJiraIssueUrl.js";
 import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds.js";
-import groupBy from 'lodash.groupby'
+import Table from 'cli-table3'
 
 export const printDailyStandup = async () => {
   const lastTimeEntries = await getLastTimeEntries()
@@ -16,7 +16,7 @@ export const printDailyStandup = async () => {
         const jiraIssue = jiraTasks.data.issues.find(issue => entry.task.name.includes(issue.key))
         const status = jiraIssue?.fields.status?.name || ''
         const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(process.env.JIRA_DOMAIN, jiraIssue.key) : ''
-        const {task: {name}, duration, tags = [], description} = entry
+        const {task: {name}, duration, tags = [], description, date} = entry
         const tagNames = tags.map(tag => tag.name).join(', ')
         const formattedDuration = formatDurationFromSeconds(duration)
 
@@ -26,16 +26,20 @@ export const printDailyStandup = async () => {
           status,
           linkToIssue,
           tags: tagNames,
+          date,
           duration: formattedDuration,
         }
       })
       .sort((a, b) => b.duration.localeCompare(a.duration))
 
-    const groups = groupBy(data, item => item.status)
-
-    Object.entries(groups).forEach(([status, items]) => {
-      console.log(`-------- ${status} --------`)
-      console.table(items)
+    const table = new Table({
+      head: ['Task', 'Description', 'Status', 'Link', 'Tags', 'Date', 'Duration'],
     })
+
+    data.forEach((items) => {
+      table.push(Object.values(items))
+    })
+
+    console.log(table.toString());
   }
 }

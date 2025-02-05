@@ -42,6 +42,5 @@ export const getLastTimeEntries = async () => {
     endDate: today.toDate()
   })).data
 
-
   return groupByTaskAndSumDuration(timeEntries)
 }

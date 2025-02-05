@@ -12,7 +12,16 @@
     "format": "eslint ./src --fix",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["daily", "standup", "timecamp", "jira", "time", "tasks", "report", "automation"],
+  "keywords": [
+    "daily",
+    "standup",
+    "timecamp",
+    "jira",
+    "time",
+    "tasks",
+    "report",
+    "automation"
+  ],
   "author": "Sebastian Siejek",
   "license": "ISC",
   "description": "",
@@ -32,6 +41,7 @@
   "type": "module",
   "dependencies": {
     "@types/lodash.groupby": "^4.6.9",
+    "cli-table3": "^0.6.5",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "inquirer": "^12.4.1",
