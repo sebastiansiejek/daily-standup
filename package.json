@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch index.ts",
     "start": "tsx index.ts",
-    "build": "tsup index.ts --format esm --minify",
+    "build": "tsup",
     "lint": "tsc --noEmit && eslint ./src",
     "format": "eslint ./src --fix",
     "prepublishOnly": "npm run build",
