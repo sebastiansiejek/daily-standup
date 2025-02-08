@@ -1,6 +1,7 @@
 import * as process from "node:process";
 import dayjs from 'dayjs'
 import type {TimeEntries} from "@src/shared/types/timeEntries.types.js";
+import {API_TIMECAMP_TOKEN} from "@src/services/store.js";
 
 
 export const getTimeEntries = async ({startDate, endDate}: {
@@ -10,7 +11,7 @@ export const getTimeEntries = async ({startDate, endDate}: {
   const myHeaders = new Headers();
 
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Authorization", process.env.API_TIMECAMP_TOKEN);
+  myHeaders.append("Authorization", API_TIMECAMP_TOKEN);
 
   const response = await fetch("https://app.timecamp.com/third_party/api/v3/time-entries", {
     method: "POST",

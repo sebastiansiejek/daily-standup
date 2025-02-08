@@ -42,6 +42,7 @@
   "dependencies": {
     "@types/lodash.groupby": "^4.6.9",
     "cli-table3": "^0.6.5",
+    "conf": "^13.1.0",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "inquirer": "^12.4.1",
