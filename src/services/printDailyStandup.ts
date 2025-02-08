@@ -34,6 +34,7 @@ export const printDailyStandup = async () => {
 
     const table = new Table({
       head: ['Task', 'Description', 'Status', 'Link', 'Tags', 'Date', 'Duration'],
+      colWidths: [25, 20, 15, 20, 20, 15, 20]
     })
 
     data.forEach((items) => {
