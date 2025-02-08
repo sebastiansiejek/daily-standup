@@ -5,12 +5,13 @@
   "homepage": "https://github.com/sebastiansiejek/daily-standup",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch --env-file=.env index.ts",
-    "start": "tsx --env-file=.env index.ts ",
+    "dev": "tsx watch index.ts",
+    "start": "tsx index.ts",
     "build": "tsup index.ts --format esm --minify",
     "lint": "tsc --noEmit && eslint ./src",
     "format": "eslint ./src --fix",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "config:reset": "tsx ./src/commands/config/resetConfig.ts"
   },
   "keywords": [
     "daily",

@@ -19,5 +19,10 @@ First-time setup will require:
 - TimeCamp API key. You can get it from your [TimeCamp profile settings](https://app.timecamp.com/app#/settings/users/me)
 - Jira credentials. You can get them from your [Jira account settings](https://id.atlassian.com/manage-profile/security/api-tokens)
 
+### Reset config
+```shell
+`npm run config:reset`
+```
+
 # 🔐 Security
 All credentials are saved locally on your machine.
