@@ -3,7 +3,7 @@ import {getJiraTasks} from "@src/api/getJiraTasks.js";
 import {getJiraIssueUrl} from "@src/shared/utils/getJiraIssueUrl.js";
 import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds.js";
 import Table from 'cli-table3'
-import {JIRA_DOMAIN} from "@src/services/store.js";
+import {getStoreValue} from "@src/services/store.js";
 
 export const printDailyStandup = async () => {
   const lastTimeEntries = await getLastTimeEntries()
@@ -16,7 +16,7 @@ export const printDailyStandup = async () => {
       .map(entry => {
         const jiraIssue = jiraTasks.data.issues.find(issue => entry.task.name.includes(issue.key))
         const status = jiraIssue?.fields.status?.name || ''
-        const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(JIRA_DOMAIN, jiraIssue.key) : ''
+        const linkToIssue = jiraIssue?.key ? getJiraIssueUrl(getStoreValue('JIRA_DOMAIN'), jiraIssue.key) : ''
         const {task: {name}, duration, tags = [], description, date} = entry
         const tagNames = tags.map(tag => tag.name).join(', ')
         const formattedDuration = formatDurationFromSeconds(duration)

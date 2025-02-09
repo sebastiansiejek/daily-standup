@@ -1,8 +1,17 @@
 import inquirer from 'inquirer';
 import {printDailyStandup} from "@src/services/printDailyStandup.js";
-import {API_TIMECAMP_TOKEN, JIRA_DOMAIN, JIRA_EMAIL, JIRA_TOKEN, store} from "@src/services/store.js";
+import {
+  getStoreValue,
+  setStoreValue,
+  type StoreKeys
+} from "@src/services/store.js";
 
 const main = async () => {
+  const API_TIMECAMP_TOKEN = getStoreValue('API_TIMECAMP_TOKEN')
+  const JIRA_TOKEN = getStoreValue('JIRA_TOKEN')
+  const JIRA_EMAIL = getStoreValue('JIRA_EMAIL')
+  const JIRA_DOMAIN = getStoreValue('JIRA_DOMAIN')
+
   if(
     !API_TIMECAMP_TOKEN ||
     !JIRA_TOKEN ||
@@ -39,10 +48,10 @@ const main = async () => {
           required: true,
           default: JIRA_EMAIL
         }
-      ])
+      ]) as Record<StoreKeys, string>
 
     Object.entries(inputs).forEach(([key, value]) => {
-      store.set(key, value)
+      setStoreValue(key as StoreKeys, value)
     })
   }
 
