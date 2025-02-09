@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.0.0...v1.1.0) (2025-02-09)
+
+### Features
+
+* separate commands ([feca5fd](https://github.com/sebastiansiejek/daily-standup/commit/feca5fdda67aaf20efa3694f8b4e742d03105121))
+
 ## 1.0.0 (2025-02-09)
 
 ### Features
