@@ -21,7 +21,7 @@ First-time setup will require:
 
 ### Reset config
 ```shell
-`npm run config:reset`
+daily-standup config:reset
 ```
 
 # 🔐 Security

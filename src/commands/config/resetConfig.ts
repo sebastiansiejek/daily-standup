@@ -1,7 +1,6 @@
 import {store} from "@src/services/store.js";
 
-const resetConfig = () => {
+export const resetConfig = () => {
   store.clear();
+  console.log("config cleared!")
 }
-
-resetConfig()
