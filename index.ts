@@ -1,61 +1,19 @@
-import inquirer from 'inquirer';
-import {printDailyStandup} from "@src/services/printDailyStandup.js";
-import {
-  getStoreValue,
-  setStoreValue,
-  type StoreKeys
-} from "@src/services/store.js";
+import {start} from "@src/commands/start.js";
+import {resetConfig} from "@src/commands/config/resetConfig.js";
 
 const main = async () => {
-  const API_TIMECAMP_TOKEN = getStoreValue('API_TIMECAMP_TOKEN')
-  const JIRA_TOKEN = getStoreValue('JIRA_TOKEN')
-  const JIRA_EMAIL = getStoreValue('JIRA_EMAIL')
-  const JIRA_DOMAIN = getStoreValue('JIRA_DOMAIN')
+  const args = process.argv.slice(2);
+  const command = args[0];
 
-  if(
-    !API_TIMECAMP_TOKEN ||
-    !JIRA_TOKEN ||
-    !JIRA_EMAIL ||
-    !JIRA_DOMAIN
-  ) {
-    const inputs = await inquirer
-      .prompt([
-        {
-          type: 'input',
-          name: 'API_TIMECAMP_TOKEN',
-          message: 'Please enter timecamp api token:',
-          required: true,
-          default: API_TIMECAMP_TOKEN
-        },
-        {
-          type: 'input',
-          name: 'JIRA_TOKEN',
-          message: 'Please enter Jira API token:',
-          required: true,
-          default: JIRA_TOKEN
-        },
-        {
-          type: 'input',
-          name: 'JIRA_DOMAIN',
-          message: 'Please enter jira domain: ',
-          required: true,
-          default: JIRA_DOMAIN
-        },
-        {
-          type: 'input',
-          name: 'JIRA_EMAIL',
-          message: 'Please enter jira email: ',
-          required: true,
-          default: JIRA_EMAIL
-        }
-      ]) as Record<StoreKeys, string>
+  switch (command) {
+    case "config:reset":
+      resetConfig();
+      break;
 
-    Object.entries(inputs).forEach(([key, value]) => {
-      setStoreValue(key as StoreKeys, value)
-    })
+    default:
+      await start();
+      process.exit(1);
   }
-
-  await printDailyStandup()
 }
 
 await main();
