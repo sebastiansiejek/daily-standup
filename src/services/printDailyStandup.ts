@@ -25,17 +25,17 @@ export const printDailyStandup = async () => {
           name,
           description: description || '',
           status,
-          linkToIssue,
           tags: tagNames,
           date,
           duration: formattedDuration,
+          linkToIssue,
         }
       })
       .sort((a, b) => b.duration.localeCompare(a.duration))
 
     const table = new Table({
       head: ['Task', 'Description', 'Status', 'Link', 'Tags', 'Date', 'Duration'],
-      colWidths: [25, 20, 15, 20, 20, 15, 20]
+      colWidths: [40, 20]
     })
 
     data.forEach((items) => {
