@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/sebastiansiejek/daily-standup/compare/v1.1.0...v1.1.1) (2025-02-10)
+
+### Bug Fixes
+
+* increase name column width ([aa0e37c](https://github.com/sebastiansiejek/daily-standup/commit/aa0e37ca8f8f954ad5fb08384cbdb5305c64360f))
+
 ## [1.1.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.0.0...v1.1.0) (2025-02-09)
 
 ### Features
