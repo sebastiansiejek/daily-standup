@@ -34,7 +34,7 @@ export const printDailyStandup = async () => {
       .sort((a, b) => b.duration.localeCompare(a.duration))
 
     const table = new Table({
-      head: ['Task', 'Description', 'Status', 'Link', 'Tags', 'Date', 'Duration'],
+      head: ['Task', 'Description', 'Status', 'Tags', 'Date', 'Duration', 'Link'],
       colWidths: [45, 20]
     })
 
