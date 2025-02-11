@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@src/*": ["src/*"]
+      "@src/*": ["./*"]
     },
     "target": "esnext",
     "module": "nodenext",
@@ -10,5 +10,7 @@
     "rewriteRelativeImportExtensions": true,
     "verbatimModuleSyntax": true,
     "strict": true,
-  }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "frontend"]
 }
