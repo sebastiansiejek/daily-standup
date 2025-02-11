@@ -3,12 +3,15 @@ import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import {useMemo, useState} from "react";
 import { ColDef, themeQuartz, GridReadyEvent } from "ag-grid-community";
 import {getTimeEntriesWithJiraStatus} from "@src/widgets/TimeEntriesWithJiraTable/api/getTimeEntriesWithJiraStatus.ts";
+import { useDarkMode } from 'usehooks-ts'
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 const LinkRenderer = (props: { value: string }) => {
   return (
-    <a href={props.value} target="_blank" rel="noopener noreferrer">
+    <a href={props.value} target="_blank" rel="noopener noreferrer" style={{
+      color: '#0397f0'
+    }}>
       {props.value}
     </a>
   );
@@ -17,6 +20,8 @@ const LinkRenderer = (props: { value: string }) => {
 export const TimeEntriesWithJiraTableUI = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const { isDarkMode} = useDarkMode()
+
 
   const onGridReady = (params: GridReadyEvent) => {
     params.api.sizeColumnsToFit()
@@ -56,10 +61,22 @@ export const TimeEntriesWithJiraTableUI = () => {
     }
   ] as ColDef[], [])
 
+  const theme = themeQuartz
+    .withParams(isDarkMode ? {
+      backgroundColor: "#1f2836",
+      browserColorScheme: "dark",
+      chromeBackgroundColor: {
+        ref: "foregroundColor",
+        mix: 0.07,
+        onto: "backgroundColor"
+      },
+      foregroundColor: "#FFF",
+    } : {});
+
   return (
     <div style={{ height: window.innerHeight }}>
       <AgGridReact
-        theme={themeQuartz}
+        theme={theme}
         rowData={data}
         columnDefs={columnDefs}
         onGridReady={onGridReady}

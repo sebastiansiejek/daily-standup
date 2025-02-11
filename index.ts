@@ -1,6 +1,6 @@
-import {start} from "@src/commands/start";
-import {resetConfig} from "@src/commands/config/resetConfig";
-import {server} from "@src/server/server";
+import {start} from "@src/commands/start.js";
+import {resetConfig} from "@src/commands/config/resetConfig.js";
+import {server} from "@src/server/server.js";
 
 const main = async () => {
   const args = process.argv.slice(2);

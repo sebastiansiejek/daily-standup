@@ -13,6 +13,12 @@ npm i -g @sebastiansiejek/daily-standup
 daily-standup
 ```
 
+## Browser
+List data in browser. 
+```shell
+daily-standup browser
+```
+
 ## 🔧 Configuration
 First-time setup will require:
 
