@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/sebastiansiejek/daily-standup/compare/v1.1.1...v1.1.2) (2025-02-11)
+
+### Bug Fixes
+
+* order of headings ([8bd4f8a](https://github.com/sebastiansiejek/daily-standup/commit/8bd4f8a6b6e7e8c6844ab00e737697bf4b79e424))
+
 ## [1.1.1](https://github.com/sebastiansiejek/daily-standup/compare/v1.1.0...v1.1.1) (2025-02-10)
 
 ### Bug Fixes
