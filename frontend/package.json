@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "tsc --noEmit && eslint .",
+    "preview": "vite preview",
+    "format": "eslint ./src --fix"
   },
   "dependencies": {
+    "ag-grid-react": "^33.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
