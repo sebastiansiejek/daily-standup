@@ -17,11 +17,16 @@ const LinkRenderer = (props: { value: string }) => {
   );
 };
 
+const defaultTheme = {
+  accentColor: 'rgb(60 234 184)',
+  borderRadius: 0,
+  wrapperBorderRadius: 0
+};
+
 export const TimeEntriesWithJiraTableUI = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const { isDarkMode} = useDarkMode()
-
 
   const onGridReady = (params: GridReadyEvent) => {
     params.api.sizeColumnsToFit()
@@ -63,7 +68,8 @@ export const TimeEntriesWithJiraTableUI = () => {
 
   const theme = themeQuartz
     .withParams(isDarkMode ? {
-      backgroundColor: "#1f2836",
+      ...defaultTheme,
+      backgroundColor: "rgb(23 24 29)",
       browserColorScheme: "dark",
       chromeBackgroundColor: {
         ref: "foregroundColor",
@@ -71,7 +77,9 @@ export const TimeEntriesWithJiraTableUI = () => {
         onto: "backgroundColor"
       },
       foregroundColor: "#FFF",
-    } : {});
+    } : {
+      ...defaultTheme
+    });
 
   return (
     <div style={{ height: window.innerHeight }}>
