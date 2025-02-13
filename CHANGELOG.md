@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.2.0...v1.3.0) (2025-02-13)
+
+### Features
+
+* add frontend/dist to files ([a6c2b95](https://github.com/sebastiansiejek/daily-standup/commit/a6c2b95dfcb4ef6861548d310d32fff169906793))
+
 ## [1.2.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.1.2...v1.2.0) (2025-02-13)
 
 ### Features
