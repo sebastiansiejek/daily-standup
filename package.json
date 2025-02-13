@@ -104,5 +104,8 @@
   },
   "workspaces": [
     "frontend"
+  ],
+  "files": [
+    "frontend/dist"
   ]
 }
