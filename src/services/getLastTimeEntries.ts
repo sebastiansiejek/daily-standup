@@ -17,7 +17,7 @@ const getStartDate = () => {
   }
 }
 
-function groupByTaskAndSumDuration(entries: TimeEntries): Record<TimeEntry['task']['name'], TimeEntry> {
+const groupByTaskAndSumDuration =(entries: TimeEntries): Record<TimeEntry['task']['name'], TimeEntry> => {
   return entries.reduce((acc, entry) => {
     const taskName = entry.task.name;
 
