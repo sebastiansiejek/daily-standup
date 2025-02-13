@@ -1,5 +1,3 @@
-![img.png](./docs/output.png)
-
 # 💡 How It Works
 
 1. Retrieves time entries from TimeCamp
@@ -10,11 +8,14 @@
 # 🚀 Getting Started
 ```shell
 npm i -g @sebastiansiejek/daily-standup
+```
+## Terminal
+```shell
 daily-standup
 ```
+![img.png](./docs/output.png)
 
 ## Browser
-List data in browser.
 ![img.png](./docs/browser.png)
 - Sorting by any column
 - Formatted link to a Jira issue
