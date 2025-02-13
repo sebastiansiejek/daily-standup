@@ -1,6 +1,6 @@
 {
   "name": "@sebastiansiejek/daily-standup",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "homepage": "https://github.com/sebastiansiejek/daily-standup",
   "scripts": {
@@ -102,5 +102,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "workspaces": ["frontend"]
+  "workspaces": [
+    "frontend"
+  ]
 }

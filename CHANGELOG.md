@@ -1,3 +1,19 @@
+## [1.2.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.1.2...v1.2.0) (2025-02-13)
+
+### Features
+
+* add darkmode color ([e126f51](https://github.com/sebastiansiejek/daily-standup/commit/e126f510bdad6ecad091b10d89267bcabdd90dcc))
+* add favicon ([642b56a](https://github.com/sebastiansiejek/daily-standup/commit/642b56a02029bc734afedeae064a813730472dcf))
+* add production mode ([d3a7996](https://github.com/sebastiansiejek/daily-standup/commit/d3a7996ad6d8f9876cb70881518ff613c1e9fb32))
+* add table ([72f1cb7](https://github.com/sebastiansiejek/daily-standup/commit/72f1cb7680c9be3785eaf74f9dbe734788b73c9f))
+* add workspaces ([8ca6f71](https://github.com/sebastiansiejek/daily-standup/commit/8ca6f7132f68c6f4375e6ab37eac5f7527423447))
+* init frontend on vite ([f1651a2](https://github.com/sebastiansiejek/daily-standup/commit/f1651a2a15645cc0b67738462b4ceba6b0369eb4))
+* sort by duration by default ([50c553e](https://github.com/sebastiansiejek/daily-standup/commit/50c553e66c356745fa6a88bbb2b7d8590b798c0a))
+
+### Bug Fixes
+
+* ui ([e582c8d](https://github.com/sebastiansiejek/daily-standup/commit/e582c8da315fbf421f88ea0d61836f182c55f6d8))
+
 ## [1.1.2](https://github.com/sebastiansiejek/daily-standup/compare/v1.1.1...v1.1.2) (2025-02-11)
 
 ### Bug Fixes
