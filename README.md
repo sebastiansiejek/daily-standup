@@ -14,7 +14,11 @@ daily-standup
 ```
 
 ## Browser
-List data in browser. 
+List data in browser.
+![img.png](./docs/browser.png)
+- Sorting by any column
+- Formatted link to a Jira issue
+- Responsive design
 ```shell
 daily-standup browser
 ```
