@@ -58,7 +58,8 @@ export const TimeEntriesWithJiraTableUI = () => {
       field: 'date'
     },
     {
-      field: 'duration'
+      field: 'duration',
+      sort: 'desc'
     },
     {
       field: 'link',
