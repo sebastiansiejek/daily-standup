@@ -9,15 +9,13 @@
     "backend:build": "NODE_ENV=production tsup",
     "backend:lint": "tsc --noEmit && eslint ./src",
     "backend:format": "eslint ./src --fix",
-    "dev": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:dev' 'npm --prefix frontend run dev'",
+    "dev": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:dev browser' 'npm --prefix frontend run dev'",
     "start": "NODE_ENV=production tsx index.ts",
     "build": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:build' 'npm --prefix frontend run build'",
     "lint": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:lint' 'npm run --prefix frontend lint'",
     "format": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:format' 'npm run --prefix frontend format'",
     "prepublishOnly": "npm run build",
-    "prepare": "husky",
-    "install:all": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm install' && 'npm install --prefix frontend'",
-    "install-ci:all": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm ci' && 'npm ci --prefix frontend'"
+    "prepare": "husky"
   },
   "keywords": [
     "daily",
