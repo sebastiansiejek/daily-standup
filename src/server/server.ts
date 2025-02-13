@@ -19,7 +19,7 @@ export const server = () => {
   const __dirname = path.dirname(__filename);
 
   if (!isDev) {
-    const frontendPath = path.join(__dirname, "../../frontend/dist");
+    const frontendPath = path.join(__dirname, "../frontend/dist");
 
     app.use(express.static(frontendPath));
 

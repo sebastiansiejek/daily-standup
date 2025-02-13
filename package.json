@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend:dev": "tsx watch index.ts",
-    "backend:build": "tsup",
+    "backend:build": "NODE_ENV=production tsup",
     "backend:lint": "tsc --noEmit && eslint ./src",
     "backend:format": "eslint ./src --fix",
     "dev": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:dev browser' 'npm --prefix frontend run dev'",
