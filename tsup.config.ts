@@ -9,4 +9,7 @@ export default defineConfig({
   },
   clean: true,
   dts: false,
+  env: {
+    NODE_ENV: process.env.NODE_ENV || "development",
+  },
 });

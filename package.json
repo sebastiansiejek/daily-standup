@@ -5,11 +5,15 @@
   "homepage": "https://github.com/sebastiansiejek/daily-standup",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch index.ts",
-    "start": "tsx index.ts",
-    "build": "tsup",
-    "lint": "tsc --noEmit && eslint ./src",
-    "format": "eslint ./src --fix",
+    "backend:dev": "tsx watch index.ts",
+    "backend:build": "NODE_ENV=production tsup",
+    "backend:lint": "tsc --noEmit && eslint ./src",
+    "backend:format": "eslint ./src --fix",
+    "dev": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:dev browser' 'npm --prefix frontend run dev'",
+    "start": "NODE_ENV=production tsx index.ts",
+    "build": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:build' 'npm --prefix frontend run build'",
+    "lint": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:lint' 'npm run --prefix frontend lint'",
+    "format": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'blue,magenta' 'npm run backend:format' 'npm run --prefix frontend format'",
     "prepublishOnly": "npm run build",
     "prepare": "husky"
   },
@@ -40,7 +44,9 @@
     "@semantic-release/github": "^11.0.1",
     "@semantic-release/npm": "^12.0.1",
     "@semantic-release/release-notes-generator": "^14.0.3",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.13.0",
+    "concurrently": "^9.1.2",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint": "^9.19.0",
     "globals": "^15.14.0",
@@ -57,8 +63,10 @@
     "conf": "^13.1.0",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "inquirer": "^12.4.1",
-    "lodash.groupby": "^4.6.0"
+    "lodash.groupby": "^4.6.0",
+    "open": "^10.1.0"
   },
   "bin": {
     "daily-standup": "./dist/index.js"
@@ -93,5 +101,6 @@
   "private": false,
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "workspaces": ["frontend"]
 }

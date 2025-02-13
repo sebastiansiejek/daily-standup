@@ -1,7 +1,7 @@
 import type {JiraIssue} from "@src/shared/types/jira.types.js";
 import {getStoreValue} from "@src/services/store.js";
 
-function extractTaskId(taskName: string): string | null {
+const extractTaskId = (taskName: string): string | null => {
   const match = taskName.match(/\[(TCD-\d+)\]/);
   return match ? match[1] : null;
 }
