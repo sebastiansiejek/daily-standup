@@ -55,6 +55,9 @@ export const TimeEntriesWithJiraTableUI = () => {
       field: 'status'
     },
     {
+      field: 'tags'
+    },
+    {
       field: 'date'
     },
     {
