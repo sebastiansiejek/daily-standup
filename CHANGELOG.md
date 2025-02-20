@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/sebastiansiejek/daily-standup/compare/v1.3.0...v1.3.1) (2025-02-20)
+
+### Bug Fixes
+
+* add tags to browser view ([#4](https://github.com/sebastiansiejek/daily-standup/issues/4)) ([917ff59](https://github.com/sebastiansiejek/daily-standup/commit/917ff59c7adcabe3a449fd2d05a7306873e19cae))
+* change browser image ([dbea95d](https://github.com/sebastiansiejek/daily-standup/commit/dbea95d6c376548f43b51a966f4b8cc2c2d94805))
+* disable footer-max-line-length rule ([bff3470](https://github.com/sebastiansiejek/daily-standup/commit/bff3470d8a8d196009683840c9dca70c5b494e3b))
+
 ## [1.3.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.2.0...v1.3.0) (2025-02-13)
 
 ### Features
