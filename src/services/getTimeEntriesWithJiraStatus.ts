@@ -2,7 +2,7 @@ import {getLastTimeEntries} from "@src/services/getLastTimeEntries.ts";
 import {getJiraTasks} from "@src/api/getJiraTasks.js";
 import {getStoreValue} from "@src/services/store.js";
 import {getJiraIssueUrl} from "@src/shared/utils/getJiraIssueUrl.js";
-import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds.js";
+import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds/formatDurationFromSeconds.js";
 
 export const getTimeEntriesWithJira = async () => {
   const lastTimeEntries = await getLastTimeEntries()
