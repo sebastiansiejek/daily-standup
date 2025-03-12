@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.3.1...v1.4.0) (2025-03-12)
+
+### Features
+
+* add sprints and tests ([#7](https://github.com/sebastiansiejek/daily-standup/issues/7)) ([b3ce908](https://github.com/sebastiansiejek/daily-standup/commit/b3ce9084e2bccfd5d3142b51272b2bf31153d0c6))
+
 ## [1.3.1](https://github.com/sebastiansiejek/daily-standup/compare/v1.3.0...v1.3.1) (2025-02-20)
 
 ### Bug Fixes
