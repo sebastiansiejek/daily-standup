@@ -65,6 +65,9 @@ export const TimeEntriesWithJiraTableUI = () => {
       sort: 'desc'
     },
     {
+      field: 'sprint',
+    },
+    {
       field: 'link',
       cellRenderer: LinkRenderer
     }
