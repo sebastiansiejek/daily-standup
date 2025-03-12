@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { getStoreValue } from '@src/services/store.js'
-import {getJiraTasks} from "@src/api/getJiraTasks.js";
+import { getJiraTasks } from "@src/api/getJiraTasks.js";
+import { JIRA_SPRINT_KEY } from "@src/shared/constants.js";
 
 vi.mock('@src/services/store.js', () => ({
   getStoreValue: vi.fn()
@@ -32,7 +33,7 @@ describe('getJiraTasks', () => {
       ok: true,
       json: () => Promise.resolve({
         issues: [
-          { id: '1', key: 'TCD-123', fields: { status: 'Done', summary: 'Test task' } }
+          { id: '1', key: 'TCD-123', fields: { status: 'Done', summary: 'Test task', sprint: [ { id: '1' }] } }
         ]
       })
     }
@@ -52,7 +53,7 @@ describe('getJiraTasks', () => {
         },
         body: JSON.stringify({
           jql: 'key in ("TCD-123")',
-          fields: ['status', 'summary']
+          fields: ['status', 'summary', JIRA_SPRINT_KEY]
         })
       })
     )

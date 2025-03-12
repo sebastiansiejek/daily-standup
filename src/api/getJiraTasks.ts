@@ -1,5 +1,6 @@
 import type {JiraIssue} from "@src/shared/types/jira.types.js";
 import {getStoreValue} from "@src/services/store.js";
+import {JIRA_SPRINT_KEY} from "@src/shared/constants.js";
 
 const extractTaskId = (taskName: string): string | null => {
   const match = taskName.match(/\[(TCD-\d+)\]/);
@@ -24,7 +25,7 @@ export const getJiraTasks = async (taskNames: string[]) => {
     },
     body: JSON.stringify({
       jql,
-      fields: ['status', 'summary']
+      fields: ['status', 'summary', JIRA_SPRINT_KEY]
     })
   })
 
