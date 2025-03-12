@@ -5,7 +5,7 @@ export const printDailyStandup = async () => {
     const data = await getTimeEntriesWithJira()
 
     const table = new Table({
-      head: ['Task', 'Description', 'Status', 'Tags', 'Date', 'Duration', 'Link'],
+      head: ['Task', 'Description', 'Status', 'Tags', 'Date', 'Duration', 'Sprint', 'Link'],
       colWidths: [45, 20]
     })
 

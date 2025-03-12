@@ -2,7 +2,23 @@ import {getLastTimeEntries} from "@src/services/getLastTimeEntries.ts";
 import {getJiraTasks} from "@src/api/getJiraTasks.js";
 import {getStoreValue} from "@src/services/store.js";
 import {getJiraIssueUrl} from "@src/shared/utils/getJiraIssueUrl.js";
-import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds.js";
+import {formatDurationFromSeconds} from "@src/shared/utils/formatDurationFromSeconds/formatDurationFromSeconds.js";
+import {JiraIssue} from "@src/shared/types/jira.types.js";
+import {JIRA_SPRINT_KEY} from "@src/shared/constants.js";
+
+const getIssueSprint = (issue: JiraIssue) => {
+  const sprints = issue?.fields?.[JIRA_SPRINT_KEY]
+
+  if(sprints) {
+    const sprint = sprints[0]
+
+    if (sprint.state === 'active') {
+      return sprint
+    }
+  }
+
+  return null;
+}
 
 export const getTimeEntriesWithJira = async () => {
   const lastTimeEntries = await getLastTimeEntries()
@@ -27,6 +43,7 @@ export const getTimeEntriesWithJira = async () => {
           tags: tagNames,
           date,
           duration: formattedDuration,
+          sprint: jiraIssue ? getIssueSprint(jiraIssue)?.name : '',
           link,
         }
       })

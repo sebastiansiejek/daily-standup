@@ -1,6 +1,6 @@
 import {getTimeEntries} from "@src/api/getTimeEntries.js";
 import type {TimeEntries, TimeEntry} from "@src/shared/types/timeEntries.types.js";
-import {getStartDate} from "@src/shared/utils/getStartDate.js";
+import {getStartDate} from "@src/shared/utils/getStartDate/getStartDate.js";
 import {getEndDate} from "@src/shared/utils/getEndDate.js";
 
 const groupByTaskAndSumDuration =(entries: TimeEntries): Record<TimeEntry['task']['name'], TimeEntry> => {
