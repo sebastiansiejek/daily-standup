@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/sebastiansiejek/daily-standup/compare/v1.4.0...v1.4.1) (2025-09-01)
+
+### Bug Fixes
+
+* update Jira API URL to include `jql` path ([#8](https://github.com/sebastiansiejek/daily-standup/issues/8)) ([fac36fd](https://github.com/sebastiansiejek/daily-standup/commit/fac36fd2e7564b72384ef5351937f86201a3c5a6))
+
 ## [1.4.0](https://github.com/sebastiansiejek/daily-standup/compare/v1.3.1...v1.4.0) (2025-03-12)
 
 ### Features
