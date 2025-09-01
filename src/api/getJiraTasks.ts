@@ -12,7 +12,7 @@ export const getJiraTasks = async (taskNames: string[]) => {
     .map(extractTaskId)
     .filter((id): id is string => id !== null);
   const jql = `key in (${extractedTaskIds.map(id => `"${id}"`).join(', ')})`;
-  const url = `https://${getStoreValue('JIRA_DOMAIN')}/rest/api/3/search`;
+  const url = `https://${getStoreValue('JIRA_DOMAIN')}/rest/api/3/search/jql`;
 
   const auth = Buffer.from(`${getStoreValue('JIRA_EMAIL')}:${getStoreValue('JIRA_TOKEN')}`).toString('base64');
 

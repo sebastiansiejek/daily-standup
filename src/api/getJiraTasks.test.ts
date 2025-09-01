@@ -43,7 +43,7 @@ describe('getJiraTasks', () => {
     const result = await getJiraTasks(['[TCD-123] Test task'])
 
     expect(mockFetch).toHaveBeenCalledWith(
-      'https://jira.example.com/rest/api/3/search',
+      'https://jira.example.com/rest/api/3/search/jql',
       expect.objectContaining({
         method: 'POST',
         headers: {
