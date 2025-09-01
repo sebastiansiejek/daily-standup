@@ -1,3 +1,9 @@
+## [1.4.3](https://github.com/sebastiansiejek/daily-standup/compare/v1.4.2...v1.4.3) (2025-09-01)
+
+### Bug Fixes
+
+* update release workflow to set `always-auth` and adjust token usage ([#10](https://github.com/sebastiansiejek/daily-standup/issues/10)) ([d4e1a69](https://github.com/sebastiansiejek/daily-standup/commit/d4e1a697a15067f5c04c1e275db8a405644c105b))
+
 ## [1.4.2](https://github.com/sebastiansiejek/daily-standup/compare/v1.4.1...v1.4.2) (2025-09-01)
 
 ### Bug Fixes
