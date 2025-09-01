@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/sebastiansiejek/daily-standup/compare/v1.4.1...v1.4.2) (2025-09-01)
+
+### Bug Fixes
+
+* improve release workflow concurrency and dependencies setup ([#9](https://github.com/sebastiansiejek/daily-standup/issues/9)) ([72a28e3](https://github.com/sebastiansiejek/daily-standup/commit/72a28e305a9a8ea24c8903a81f24db5071b75073))
+
 ## [1.4.1](https://github.com/sebastiansiejek/daily-standup/compare/v1.4.0...v1.4.1) (2025-09-01)
 
 ### Bug Fixes
